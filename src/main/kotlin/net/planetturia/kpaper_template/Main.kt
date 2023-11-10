@@ -1,4 +1,4 @@
-package net.planetturia.template
+package net.planetturia.kpaper_template
 
 import de.miraculixx.kpaper.extensions.bukkit.cmp
 import de.miraculixx.kpaper.main.KPaper
