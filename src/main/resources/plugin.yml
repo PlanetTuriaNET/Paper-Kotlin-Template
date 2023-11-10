@@ -1,0 +1,14 @@
+main: "net.planetturia.template.Main"
+name: "Template"
+version: "1.0.0"
+api-version: "1.20"
+
+author: "CloudVEX"
+description: "PlanetTuria.NET KPaper Template."
+website: "https://planetturia.net"
+
+libraries:
+  - "de.miraculixx:kpaper:1.1.0"
+  - "dev.jorel:commandapi-bukkit-shade:9.2.0"
+  - "dev.jorel:commandapi-bukkit-kotlin:9.2.0"
+  - "io.github.crackthecodeabhi:kreds:0.9.0"
