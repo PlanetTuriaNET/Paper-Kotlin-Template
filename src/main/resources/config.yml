@@ -1,6 +1,0 @@
-# Meta
-prefix: '<gradient:#0058AA:#00D1FF>PlanetTuria.NET</gradient> <dark_gray>»</dark_gray> '
-
-# Database
-RedisURL: "127.0.0.1:6379"
-RedisPass: ""

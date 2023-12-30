@@ -1,4 +1,4 @@
-rootProject.name = "KPaper-Template"
+rootProject.name = "PaperTemplate"
 
 pluginManagement {
     repositories {

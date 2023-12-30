@@ -1,11 +1,11 @@
-package net.planetturia.kpaper_template
+package net.planetturia.papertemplate
 
 import de.miraculixx.kpaper.extensions.bukkit.cmp
 import de.miraculixx.kpaper.main.KPaper
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
 
-class Main : KPaper() {
+class Main: KPaper() {
 
     companion object {
         lateinit var INSTANCE: KPaper
@@ -24,8 +24,6 @@ class Main : KPaper() {
         CommandAPI.onEnable()
         config.options().copyDefaults(true)
         saveDefaultConfig()
-
-        // Constructors
 
         // Events
     }
