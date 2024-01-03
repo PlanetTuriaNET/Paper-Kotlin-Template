@@ -19,8 +19,8 @@ dependencies {
 
     // Minecraft
     library("de.miraculixx:kpaper:1.+")
-    library("dev.jorel:commandapi-bukkit-shade:9.3.0")
-    library("dev.jorel:commandapi-bukkit-kotlin:9.3.0")
+    library("dev.jorel:commandapi-bukkit-shade:9.+")
+    library("dev.jorel:commandapi-bukkit-kotlin:9.+")
 
     // Kotlin
     implementation(kotlin("stdlib"))
@@ -28,17 +28,7 @@ dependencies {
     library("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.+")
 
     // Database
-    library("io.github.crackthecodeabhi", "kreds","0.+")
-
-    library("org.jetbrains.exposed:exposed-core:$exposedVersion")
-    library("org.jetbrains.exposed:exposed-crypt:$exposedVersion")
-    library("org.jetbrains.exposed:exposed-dao:$exposedVersion")
-    library("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
-
-    library("org.jetbrains.exposed:exposed-kotlin-datetime:$exposedVersion")
-
-    library("org.jetbrains.exposed:exposed-json:$exposedVersion")
-    library("org.jetbrains.exposed:exposed-money:$exposedVersion")
+    library("io.github.crackthecodeabhi", "kreds","0.9.1")
 }
 
 bukkit {
