@@ -19,8 +19,8 @@ dependencies {
 
     // Minecraft
     library("de.miraculixx:kpaper:1.+")
-    library("dev.jorel:commandapi-bukkit-shade:9.+")
-    library("dev.jorel:commandapi-bukkit-kotlin:9.+")
+    library("dev.jorel:commandapi-bukkit-shade:9.3.0")
+    library("dev.jorel:commandapi-bukkit-kotlin:9.3.0")
 
     // Kotlin
     implementation(kotlin("stdlib"))
