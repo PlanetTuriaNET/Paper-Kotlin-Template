@@ -4,26 +4,38 @@ import de.miraculixx.kpaper.extensions.bukkit.cmp
 import de.miraculixx.kpaper.main.KPaper
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.minimessage.MiniMessage
+import net.planetturia.cirrofy.Cirrofy
 
-class Main: KPaper() {
+class Main : KPaper() {
 
     companion object {
         lateinit var INSTANCE: KPaper
+
+        lateinit var prefix: Component
+        lateinit var branding: Component
+        lateinit var boldBranding: Component
     }
 
     override fun load() {
-        CommandAPI.onLoad(CommandAPIBukkitConfig(this).silentLogs(true))
-        server.consoleSender.sendMessage(cmp("» Template geladen."))
+        INSTANCE = this
+        redisAuth()
 
-        // Commands
+        CommandAPI.onLoad(CommandAPIBukkitConfig(this).silentLogs(true))
+
+        server.consoleSender.sendMessage(cmp("» Template geladen."))
     }
 
     override fun startup() {
-        INSTANCE = this
 
         CommandAPI.onEnable()
         config.options().copyDefaults(true)
         saveDefaultConfig()
+
+        prefix = MiniMessage.miniMessage().deserialize(config.getString("prefix").toString())
+        branding = MiniMessage.miniMessage().deserialize(config.getString("branding").toString())
+        boldBranding = MiniMessage.miniMessage().deserialize(config.getString("bold-branding").toString())
 
         // Events
     }
@@ -40,6 +52,14 @@ class Main: KPaper() {
         config.options().copyDefaults(true)
         saveConfig()
     }
-}
 
+    private fun redisAuth() {
+        val hostAndPort = config.getString("RedisURL")
+        val host = hostAndPort?.split(":")?.get(0) ?: "127.0.0.1"
+        val port = hostAndPort?.split(":")?.get(1)?.toInt() ?: 6379
+        val pass = config.getString("RedisPass") ?: "" // Leer lassen, wenn kein Passwort gesetzt ist
+
+        Cirrofy.breds().setAuth(host, port, pass)
+    }
+}
 val PluginManager by lazy { Main.INSTANCE }
