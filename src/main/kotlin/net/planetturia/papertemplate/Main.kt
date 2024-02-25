@@ -33,9 +33,7 @@ class Main : KPaper() {
         config.options().copyDefaults(true)
         saveDefaultConfig()
 
-        prefix = MiniMessage.miniMessage().deserialize(config.getString("prefix").toString())
-        branding = MiniMessage.miniMessage().deserialize(config.getString("branding").toString())
-        boldBranding = MiniMessage.miniMessage().deserialize(config.getString("bold-branding").toString())
+        loadMeta()
 
         // Events
     }
@@ -51,6 +49,14 @@ class Main : KPaper() {
         saveDefaultConfig()
         config.options().copyDefaults(true)
         saveConfig()
+
+        loadMeta()
+    }
+
+    private fun loadMeta() {
+        prefix = MiniMessage.miniMessage().deserialize(config.getString("prefix").toString())
+        branding = MiniMessage.miniMessage().deserialize(config.getString("branding").toString())
+        boldBranding = MiniMessage.miniMessage().deserialize(config.getString("bold-branding").toString())
     }
 
     private fun redisAuth() {
