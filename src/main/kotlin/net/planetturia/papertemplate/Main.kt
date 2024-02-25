@@ -60,12 +60,20 @@ class Main : KPaper() {
     }
 
     private fun redisAuth() {
+        // Primary
         val hostAndPort = config.getString("RedisURL")
         val host = hostAndPort?.split(":")?.get(0) ?: "127.0.0.1"
         val port = hostAndPort?.split(":")?.get(1)?.toInt() ?: 6379
         val pass = config.getString("RedisPass") ?: "" // Leer lassen, wenn kein Passwort gesetzt ist
 
+        // Cache
+        val cacheHostAndPort = config.getString("RedisCacheURL")
+        val cacheHost = cacheHostAndPort?.split(":")?.get(0) ?: "127.0.0.1"
+        val cachePort = cacheHostAndPort?.split(":")?.get(1)?.toInt() ?: 6370
+        val cachePass = config.getString("RedisCachePass") ?: "" // Leer lassen, wenn kein Passwort gesetzt ist
+
         Cirrofy.breds().setAuth(host, port, pass)
+        Cirrofy.breds().setCacheAuth(cacheHost, cachePort, cachePass)
     }
 }
 val PluginManager by lazy { Main.INSTANCE }

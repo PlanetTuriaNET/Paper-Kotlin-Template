@@ -6,3 +6,6 @@ bold-branding: ''
 # Database
 RedisURL: "127.0.0.1:6379"
 RedisPass: ""
+
+RedisCacheURL: "127.0.0.1:6370"
+RedisCachePass: ""
